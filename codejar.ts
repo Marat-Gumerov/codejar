@@ -190,6 +190,7 @@ export function CodeJar(editor: HTMLElement, highlight: (e: HTMLElement, pos?: P
         if (pos.dir != '->') pos.start += el.nodeValue!.length
         if (pos.dir != '<-') pos.end += el.nodeValue!.length
       }
+      return undefined;
     })
 
     // collapse empty text nodes
@@ -231,7 +232,8 @@ export function CodeJar(editor: HTMLElement, highlight: (e: HTMLElement, pos?: P
           return 'stop'
         }
       }
-      current += len
+      current += len;
+      return undefined;
     })
 
     if (!startNode) startNode = editor, startOffset = editor.childNodes.length
